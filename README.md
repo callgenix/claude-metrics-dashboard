@@ -62,7 +62,31 @@ Done.
 
 [![Claude Product Ecosystem](ecosystem.svg)](https://github.com/callgenix/claude-metrics-dashboard/blob/main/ecosystem.svg)
 
-Every node is a real product. Read left to right, top to bottom.
+<details>
+<summary><strong>Understanding the diagram</strong></summary>
+<br>
+
+**1 · At the top of everything sits Anthropic**
+
+Anthropic is the company that builds and trains the Claude AI models. When you hear names like Haiku, Sonnet, and Opus, those are the actual AI brains behind every Claude experience. Think of them as engines with different sizes and price points: Haiku is fast and affordable for simple tasks, Sonnet is the everyday workhorse for most people, and Opus is the most capable for complex reasoning. Everything else in this diagram is just a way of reaching one of these engines.
+
+**2 · The Claude API — one gateway for everything**
+
+The Claude API lives at platform.claude.com and is the single gateway that all Claude products go through. It is primarily aimed at developers. The API runs on a pay-as-you-go credit system that is completely separate from any chat subscription. Most regular users never interact with it directly, but understanding it matters because everything in this diagram is sitting on top of it.
+
+**3 · Three very different interfaces, same AI underneath**
+
+Claude.ai is the browser and mobile chat interface — the one most people start with. Claude Desktop is the downloadable application that unlocks MCP, which lets Claude interact with your local files and browser. Claude Code is a command-line tool for developers who want Claude to write, test, and reason about code directly in their environment. Same AI underneath all three — very different experiences on top.
+
+**4 · Extensions and tools that plug into each interface**
+
+From claude.ai: Excel and PowerPoint add-ins. From Claude Desktop: Cowork for automation and Claude for Chrome for browser interaction. From Claude Code: VS Code and JetBrains extensions. These tools are not standalone products — they work because of the interface they are attached to.
+
+**5 · The MCP Protocol layer — what makes automation real**
+
+MCP stands for Model Context Protocol. It is an open standard that allows Claude to connect to external systems — your local file system, a browser, third-party APIs, and more. Without MCP, Claude is a capable conversational partner but nothing more. With MCP, Claude can read a file, navigate a web page, pull live data, and write results back — all in a single conversation. The live fetch that powers this dashboard is MCP in action.
+
+</details>
 
 ---
 
@@ -97,32 +121,6 @@ Two MCP capabilities combine to make this possible.
 |---|---|---|
 | Session %, Weekly %, Routines, Design | `claude.ai/settings/usage` | Claude in Chrome reads DOM |
 | API credit balance | `platform.claude.com/settings/billing` | Claude in Chrome reads DOM |
-
-</details>
-
-<details>
-<summary><strong>Understanding the diagram</strong></summary>
-<br>
-
-**1 · At the top of everything sits Anthropic**
-
-Anthropic is the company that builds and trains the Claude AI models. When you hear names like Haiku, Sonnet, and Opus, those are the actual AI brains behind every Claude experience. Think of them as engines with different sizes and price points: Haiku is fast and affordable for simple tasks, Sonnet is the everyday workhorse for most people, and Opus is the most capable for complex reasoning. Everything else in this diagram is just a way of reaching one of these engines.
-
-**2 · The Claude API — one gateway for everything**
-
-The Claude API lives at platform.claude.com and is the single gateway that all Claude products go through. It is primarily aimed at developers. The API runs on a pay-as-you-go credit system that is completely separate from any chat subscription. Most regular users never interact with it directly, but understanding it matters because everything in this diagram is sitting on top of it.
-
-**3 · Three very different interfaces, same AI underneath**
-
-Claude.ai is the browser and mobile chat interface — the one most people start with. Claude Desktop is the downloadable application that unlocks MCP, which lets Claude interact with your local files and browser. Claude Code is a command-line tool for developers who want Claude to write, test, and reason about code directly in their environment. Same AI underneath all three — very different experiences on top.
-
-**4 · Extensions and tools that plug into each interface**
-
-From claude.ai: Excel and PowerPoint add-ins. From Claude Desktop: Cowork for automation and Claude for Chrome for browser interaction. From Claude Code: VS Code and JetBrains extensions. These tools are not standalone products — they work because of the interface they are attached to.
-
-**5 · The MCP Protocol layer — what makes automation real**
-
-MCP stands for Model Context Protocol. It is an open standard that allows Claude to connect to external systems — your local file system, a browser, third-party APIs, and more. Without MCP, Claude is a capable conversational partner but nothing more. With MCP, Claude can read a file, navigate a web page, pull live data, and write results back — all in a single conversation. The live fetch that powers this dashboard is MCP in action.
 
 </details>
 
