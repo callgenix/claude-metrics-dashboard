@@ -1,6 +1,6 @@
 # Claude Metrics Dashboard
 
-[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
+[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)]
 
 One HTML file. Live metrics from your Claude account — session window, weekly plan, and API credits.
 
@@ -8,7 +8,6 @@ One HTML file. Live metrics from your Claude account — session window, weekly 
 
 ## Download
 
-👉 **[Download from GitHub Releases](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
 👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.0/claude-usage.html)**
 
 
