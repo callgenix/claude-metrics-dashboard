@@ -43,8 +43,7 @@ Approve the one-time browser permissions.
 
 ## What actually happens — step by step
 
-This section is for anyone who wants to understand what Claude is doing when it runs the fetch. This is the part that surprised me the most when I first saw it.
-
+This section is for curious minds who want to understand what Claude is really doing when it runs a fetch. Not to show my geek side, but after spending an entire weekend dissecting the Claude architecture and understanding how the components below integrate with each other, I felt genuinely rewarded by the results of this lab exploration.
 ---
 
 ### Step 1 — You point Claude at a local folder
