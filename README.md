@@ -44,19 +44,28 @@ The goal here is different:
 helping Claude users who have never touched MCP before understand, through a practical real-world example, how Claude Desktop can interact with systems outside the traditional chat interface.
 
 ---
+# Why This Project Exists
 
-# Why I Built This
+MCPs (Model Context Protocols) are rapidly becoming one of the foundational pillars behind agentic AI workflows.
 
-Claude already exposes usage information through its interface, but I wanted a faster and more visual “control panel” I could leave open on a second monitor during long work sessions.
+As AI systems evolve beyond isolated chat interactions and begin interacting with filesystems, browsers, applications, APIs, and external tools, protocols such as MCP increasingly become part of the connective tissue enabling those workflows to exist.
 
-The project also became a practical learning exercise around:
+Although MCPs are not exclusive to Claude, the Claude ecosystem was the AI stack that most strongly illuminated these concepts during this particular exploration.
+
+This project started as a lightweight practical experiment:
+a simple visual dashboard consolidating Claude usage metrics into a persistent local HTML page.
+
+But along the way, it also became a hands-on learning exercise around:
 
 * MCP filesystem access
 * browser automation
 * local HTML updates
-* and Claude Desktop architecture
+* Claude Desktop architecture
+* and real-world agentic workflow foundations
 
-Most of this was built through experimentation, trial-and-error, documentation reading, and occasionally racking my brain for hours trying to understand why something was not working.
+Most of this was built through experimentation, documentation reading, trial-and-error, and occasionally racking my brain for hours trying to understand why something was not working.
+
+Beyond the dashboard itself, projects like this help transform abstract AI concepts into something tangible, observable, and practical.
 
 ---
 
