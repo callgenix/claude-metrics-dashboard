@@ -1,37 +1,47 @@
 # Claude Metrics Dashboard
 
+![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)
+
+A practical beginner-friendly MCP experiment showing how Claude Desktop can read browser data and update local HTML dashboards automatically.
+
+This lightweight dashboard tracks:
+
+* Claude session usage
+* Weekly plan limits
+* API credits
+* Additional usage metrics
+
+All consolidated into a single local HTML dashboard.
+
+---
+
 > [!IMPORTANT]
 > This project currently applies to paid Claude plans that expose usage and billing information through Claude Desktop and the Claude Chrome extension, such as Claude Pro, Max, Team, or Enterprise.
 >
 > Free-tier users may not see the same usage pages, metrics, or browser-access behavior demonstrated in this walkthrough.
 
-![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)
-
-A lightweight Claude usage dashboard powered by MCP filesystem access and browser automation through the Claude Chrome extension.
-
-This small weekend project started as a simple convenience experiment: creating a persistent, at-a-glance dashboard showing Claude session usage, weekly plan limits, API credits, and related metrics in one place.
-
-For experienced MCP users, none of this will feel particularly new. The goal here is different: helping Claude Pro users who have never touched MCP before understand, through a practical real-world project, how Claude Desktop can interact with local files and browser sessions outside the chat window.
-
 ---
 
-# What This Dashboard Tracks
+# What This Project Demonstrates
 
-## Session Window
+This project combines two MCP-related capabilities:
 
-Tracks the current Claude session usage window and estimated reset time.
+* Filesystem access
+* Browser interaction through the Claude Chrome extension
 
-## Weekly Plan Usage
+Together, they allow Claude Desktop to:
 
-Displays weekly plan consumption and remaining capacity.
+* read local files,
+* update local HTML dashboards,
+* open browser pages,
+* navigate Claude usage pages,
+* read live metrics,
+* and write updated values directly into the dashboard.
 
-## API Budget
+For experienced MCP users, none of this will feel particularly new.
 
-Reads Anthropic developer API credit balance directly from the billing page.
-
-## Routines and Claude Design
-
-Displays additional usage metrics available inside Claude usage pages.
+The goal here is different:
+helping Claude users who have never touched MCP before understand, through a practical real-world example, how Claude Desktop can interact with systems outside the traditional chat interface.
 
 ---
 
@@ -39,12 +49,37 @@ Displays additional usage metrics available inside Claude usage pages.
 
 Claude already exposes usage information through its interface, but I wanted a faster and more visual “control panel” I could leave open on a second monitor during long work sessions.
 
-The project also became a practical learning exercise around two MCP capabilities:
+The project also became a practical learning exercise around:
 
-* Filesystem access
-* Browser interaction through the Claude Chrome extension
+* MCP filesystem access
+* browser automation
+* local HTML updates
+* and Claude Desktop architecture
 
-Together, these capabilities reveal a much broader picture of what the Claude ecosystem can do outside the traditional chat interface.
+Most of this was built through experimentation, trial-and-error, documentation reading, and occasionally racking my brain for hours trying to understand why something was not working.
+
+---
+
+# Quick Setup (Experienced Users)
+
+If you already:
+
+* use Node.js,
+* understand command-line basics,
+* and are familiar with Claude Desktop,
+
+you can probably complete the setup in under 10 minutes.
+
+High-level flow:
+
+1. Install Node.js
+2. Install Claude Desktop
+3. Install Claude Chrome Extension
+4. Configure `claude_desktop_config.json`
+5. Restart Claude Desktop
+6. Ask Claude to refresh the dashboard
+
+Detailed beginner-friendly instructions continue below.
 
 ---
 
@@ -52,11 +87,11 @@ Together, these capabilities reveal a much broader picture of what the Claude ec
 
 ## Filesystem MCP Server
 
-The filesystem server allows Claude Desktop to:
+The filesystem MCP server allows Claude Desktop to:
 
 * read local files,
-* update local files,
-* write dashboard data directly into HTML files.
+* write local files,
+* update dashboard data automatically.
 
 Example configuration file location:
 
@@ -64,7 +99,7 @@ Example configuration file location:
 C:\Users\[YOUR WINDOWS USERNAME]\AppData\Roaming\Claude\claude_desktop_config.json
 ```
 
-Example MCP configuration:
+Example configuration:
 
 ```json
 {
@@ -87,10 +122,10 @@ Example MCP configuration:
 
 The Claude Chrome extension allows Claude Desktop to:
 
-* open web pages,
-* navigate Claude usage pages,
+* open browser pages,
+* navigate usage pages,
 * read live browser data,
-* update the dashboard automatically.
+* and update the dashboard automatically.
 
 ![MCP Browser Tabs](screenshots/mcp-browser-tabs.jpg)
 
@@ -121,7 +156,7 @@ The automation flow currently works as follows:
 
 ---
 
-# Installation Guide
+# Full Beginner Walkthrough
 
 ## 1. Install Node.js
 
@@ -129,27 +164,55 @@ Download and install Node.js:
 
 https://nodejs.org/
 
-This also installs `npx`, which Claude Desktop uses to launch MCP servers.
+This also installs:
+
+* `node`
+* `npx`
+
+Claude Desktop uses `npx` to launch MCP servers automatically in the background.
 
 ---
 
 ## 2. Verify Node.js Installation
 
-Open a Windows command prompt:
+> [!TIP]
+> If you already use Node.js regularly and know `node` and `npx` are properly installed and available from the command line, you can safely skip this section.
 
-```text
-WINDOWS + R
-cmd
-```
+Sometimes Node.js installs correctly, but Windows does not properly register the `node` and `npx` commands in the system PATH.
 
-Then verify:
+When that happens:
+
+* Claude Desktop cannot start the MCP server,
+* and dashboard updates may silently fail.
+
+Open a command window and verify both commands work:
 
 ```bash
 node -v
 npx -v
 ```
 
-If both commands return version numbers successfully, Claude Desktop should be able to launch MCP servers correctly.
+Both should return version numbers successfully.
+
+---
+
+<details>
+<summary><strong>New to Windows command lines?</strong></summary>
+
+Windows command windows are text-based interfaces traditionally used to run system commands manually.
+
+You can open one by:
+
+* Pressing `WINDOWS + R`
+* Typing `cmd`
+* Pressing ENTER
+
+Alternative options:
+
+* `powershell`
+* right-click Start button → "Terminal"
+
+</details>
 
 ---
 
@@ -160,7 +223,7 @@ Download:
 https://claude.ai/download
 
 Important:
-This project requires Claude Desktop, not only the browser version of Claude.
+this project requires Claude Desktop, not only the browser version of Claude.
 
 ---
 
@@ -168,7 +231,11 @@ This project requires Claude Desktop, not only the browser version of Claude.
 
 Install the official Claude extension published by Anthropic from the Chrome Web Store.
 
-This extension enables browser interaction between Claude Desktop and Chrome.
+This extension allows Claude Desktop to interact with browser pages opened in Chrome.
+
+Without it:
+
+* live usage fetching will not work.
 
 ---
 
@@ -198,7 +265,33 @@ Locate or create:
 claude_desktop_config.json
 ```
 
-Paste the MCP configuration shown earlier in this README.
+Paste:
+
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\CODE"
+      ]
+    }
+  }
+}
+```
+
+What this configuration does:
+
+* launches the filesystem MCP server,
+* allows Claude Desktop to access files inside `C:\CODE`,
+* allows Claude to update the dashboard automatically.
+
+Important:
+
+* replace `C:\\CODE` with your own folder if needed,
+* Windows paths inside JSON files require double backslashes.
 
 ---
 
@@ -210,7 +303,15 @@ The filesystem MCP server activates during startup.
 
 ---
 
-## 8. Ask Claude to Update the Dashboard
+## 8. Make Sure You Are Logged Into Claude in Chrome
+
+Open Google Chrome and confirm you are already logged into:
+
+* `claude.ai`
+
+---
+
+## 9. Ask Claude to Update the Dashboard
 
 Inside Claude Desktop, type something natural such as:
 
@@ -226,9 +327,33 @@ Refresh my Claude usage dashboard
 
 Claude will:
 
-* open your usage pages,
+* open usage pages,
 * read current metrics,
-* update the local dashboard HTML file automatically.
+* update the dashboard HTML automatically.
+
+---
+
+## 10. Approve Browser Permissions
+
+The first time you run this, Claude will likely request permission to access:
+
+* `claude.ai`
+* `platform.claude.com`
+
+Allow both.
+
+These are normally one-time approvals.
+
+---
+
+## 11. Refresh the Dashboard
+
+Claude writes the updated values directly into your local HTML file.
+
+To view updates:
+
+* double-click the HTML file,
+* or press F5 if it is already open in your browser.
 
 ---
 
@@ -247,19 +372,22 @@ This project does not use:
 * external APIs,
 * or credential storage.
 
-Browser interaction happens through the official Claude Chrome extension and Claude Desktop permissions.
+Browser interaction happens through:
 
-Always review any MCP configuration before granting filesystem access.
+* Claude Desktop
+* the official Claude Chrome extension
+* MCP permissions you explicitly approve
+
+Always review MCP configurations before granting filesystem access.
 
 ---
 
 # Important Disclaimer
 
-This project was built through experimentation, documentation reading, trial-and-error, and practical exploration of MCP capabilities.
+This is not an official Anthropic project, nor an authoritative implementation reference for MCP architecture or security practices.
 
-It is not an official Anthropic project, nor an authoritative implementation reference for MCP architecture or security practices.
-
-The goal is educational and exploratory: helping newer users better understand how Claude Desktop, MCP servers, browser access, and local file interaction can work together in practical workflows.
+The goal is educational and exploratory:
+helping newer users better understand how Claude Desktop, MCP servers, browser access, and local file interaction can work together in practical workflows.
 
 ---
 
