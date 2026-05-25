@@ -1,6 +1,6 @@
 # Claude Metrics Dashboard
 
-[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)]
+![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)
 
 One HTML file. Live metrics from your Claude account — session window, weekly plan, and API credits.
 
