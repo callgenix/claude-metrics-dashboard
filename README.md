@@ -8,7 +8,7 @@ One HTML file. Live metrics from your Claude account — session window, weekly 
 
 ## Download
 
-👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
+👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.0/claude-usage.html)**
 
 Save it anywhere on your machine. Open it in Chrome. That is it.
 
