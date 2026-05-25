@@ -1,5 +1,10 @@
 # Claude Metrics Dashboard
 
+> [!IMPORTANT]
+> This project currently applies to paid Claude plans that expose usage and billing information through Claude Desktop and the Claude Chrome extension, such as Claude Pro, Max, Team, or Enterprise.
+>
+> Free-tier users may not see the same usage pages, metrics, or browser-access behavior demonstrated in this walkthrough.
+
 ![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)
 
 A lightweight Claude usage dashboard powered by MCP filesystem access and browser automation through the Claude Chrome extension.
