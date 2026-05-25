@@ -225,6 +225,10 @@ Alternative options:
 </details>
 
 ---
+> [!NOTE]
+> The command window does NOT need to remain open after installation or verification.
+>
+> Claude Desktop automatically launches the filesystem MCP server in the background during startup using the configuration stored in `claude_desktop_config.json`.
 
 ## 3. Install Claude Desktop
 
