@@ -167,6 +167,10 @@ The automation flow currently works as follows:
 
 # Full Beginner Walkthrough
 
+> [!TIP]
+> If you already use Node.js regularly and know `node` and `npx` are properly installed and available from the command line, you can safely skip this section and **JUMP to step #3**.
+
+
 ## 1. Install Node.js
 
 Download and install Node.js:
@@ -183,9 +187,6 @@ Claude Desktop uses `npx` to launch MCP servers automatically in the background.
 ---
 
 ## 2. Verify Node.js Installation
-
-> [!TIP]
-> If you already use Node.js regularly and know `node` and `npx` are properly installed and available from the command line, you can safely skip this section.
 
 Sometimes Node.js installs correctly, but Windows does not properly register the `node` and `npx` commands in the system PATH.
 
