@@ -1,6 +1,6 @@
 # Claude Metrics Dashboard
 
-![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)
+[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
 
 One HTML file. Live metrics from your Claude account — session window, weekly plan, and API credits.
 
@@ -8,7 +8,7 @@ One HTML file. Live metrics from your Claude account — session window, weekly 
 
 ## Download
 
-👉 **[Download from GitHub Releases](https://github.com/callgenix/claude-metrics-dashboard/releases/latest/download/claude-usage.html)**
+👉 **[Download from GitHub Releases](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
 
 Save it anywhere. Open it in Chrome. That is it.
 
@@ -57,6 +57,14 @@ Done.
 
 ---
 
+## The Claude product ecosystem
+
+[![Claude Product Ecosystem](ecosystem.svg)](https://github.com/callgenix/claude-metrics-dashboard/blob/main/ecosystem.svg)
+
+Every node is a real product. Read left to right, top to bottom.
+
+---
+
 ## Optional reading
 
 <details>
@@ -88,16 +96,6 @@ Two MCP capabilities combine to make this possible.
 |---|---|---|
 | Session %, Weekly %, Routines, Design | `claude.ai/settings/usage` | Claude in Chrome reads DOM |
 | API credit balance | `platform.claude.com/settings/billing` | Claude in Chrome reads DOM |
-
-</details>
-
-<details>
-<summary><strong>The Claude product ecosystem</strong></summary>
-<br>
-
-Every node in this diagram is a real product. The diagram shows how they connect — from Anthropic's AI models at the top, through the API, down to the tools you use every day.
-
-![Claude Product Ecosystem](ecosystem.svg)
 
 </details>
 
