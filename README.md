@@ -53,7 +53,7 @@ The dashboard is entirely self-contained. All styles are inline. There are no ex
 
 The `screenshots/` folder exists only to support this README. You do not need to download it.
 
-> **Want to customize it?** Fork the repo and make it your own. That is what GitHub is for.
+> **Want to customize this dashboard's HTML?** Feel free to fork the repo and make it your own. Be my guest.
 
 ---
 
