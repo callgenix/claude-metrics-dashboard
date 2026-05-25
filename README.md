@@ -10,11 +10,15 @@ A single HTML file that gives you a persistent, visual layer over Claude's built
 
 **One file. No install. No dependencies.**
 
-👉 [Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
+The cleanest way to get the file is through a GitHub Release — a stable, versioned download that won't change under you.
+
+👉 **[Download from GitHub Releases](https://github.com/callgenix/claude-metrics-dashboard/releases/latest/download/claude-usage.html)**
+
+Or browse the repository directly and download `claude-usage.html` from the file list.
 
 Save it anywhere on your machine — `C:\CODE\` works well. Open it in Chrome. That's it.
 
-Live data fetch requires two additional things already covered in the setup section below.
+Live data fetch requires two additional things, covered in the setup section below.
 
 ---
 
@@ -37,7 +41,7 @@ Claude measures session and weekly capacity in a proprietary unit. Anthropic doe
 claude-metrics-dashboard/
 ├── README.md
 ├── claude-usage.html        ← the dashboard (this is the file you need)
-└── screenshots/
+└── screenshots/             ← documentation images, not required to run the dashboard
     ├── dashboard-main.jpg
     ├── usage-page.jpg
     ├── architecture-table.jpg
@@ -46,6 +50,10 @@ claude-metrics-dashboard/
 ```
 
 The dashboard is entirely self-contained. All styles are inline. There are no external dependencies beyond Google Fonts, which loads automatically.
+
+The `screenshots/` folder exists only to support this README. You do not need to download it.
+
+> **Want to customize it?** Fork the repo and make it your own. That is what GitHub is for.
 
 ---
 
