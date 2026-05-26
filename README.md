@@ -10,7 +10,7 @@ One HTML file. Live metrics from your Claude account — session window, weekly 
 
 👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
 
-Save it **inside the folder** you will give MCP Filesystem access to — for example `C:\CODE`. Open it in Chrome. That is it.
+Save it **inside the folder** you will give MCP Filesystem access to — for example `C:\CODE`. 
 
 ---
 
