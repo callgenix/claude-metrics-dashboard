@@ -127,6 +127,7 @@ Some examples I've personally encountered:
 - Claude Desktop requiring a full restart after MCP changes
 - HTML file moved or renamed outside the mounted folder
 - Prompts too vague during a fresh conversation
+- Switching Windows users and discovering that Claude Desktop, Chrome permissions, MCP connections, and extension sessions may need to be re-established almost from scratch
 
 In practice, I discovered that MCP workflows behave much more like coordinating distributed components than issuing a single AI command.
 
