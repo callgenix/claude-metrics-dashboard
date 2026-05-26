@@ -1,6 +1,6 @@
 # Claude Metrics Dashboard
 
-[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.0/claude-usage.html)
+[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
 
 One HTML file. Live metrics from your Claude account — session window, weekly plan, and API credits.
 
@@ -8,7 +8,7 @@ One HTML file. Live metrics from your Claude account — session window, weekly 
 
 ## Download
 
-👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.0/claude-usage.html)**
+👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
 
 Save it anywhere on your machine. Open it in Chrome. That is it.
 
@@ -18,13 +18,25 @@ Save it anywhere on your machine. Open it in Chrome. That is it.
 
 **What you need:** Node.js · Claude Desktop · Claude for Chrome extension · paid Claude plan.
 
-**1.** Configure `claude_desktop_config.json`:
+**1.** Locate or create `claude_desktop_config.json` at:
+```
+C:\Users\[YOUR USERNAME]\AppData\Roaming\Claude\claude_desktop_config.json
+```
+
+> ✏️ **Before you paste:** replace `C:\\CODE` with the actual folder where you saved `claude-usage.html`.
+>
+> 📋 Copy the snippet below — or [download it as a ready-made file ↓](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.1/claude_desktop_config.json)
+
 ```json
 {
   "mcpServers": {
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "C:\\CODE"]
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\CODE"
+      ]
     }
   }
 }
@@ -43,7 +55,7 @@ Approve the one-time browser permissions.
 
 ## What actually happens — step by step
 
-This section is for curious minds who want to understand what Claude is really doing when it runs a fetch. Not to show my geek side, but after spending an entire weekend dissecting the Claude architecture and understanding how the components below integrate with each other, I felt genuinely rewarded by the results of this lab exploration.
+This section is for anyone who wants to understand what Claude is doing when it runs the fetch. This is the part that surprised me the most when I first saw it.
 
 ---
 
@@ -55,7 +67,26 @@ Before anything else, you add a short config to Claude Desktop that tells it whi
 C:\Users\[YOUR USERNAME]\AppData\Roaming\Claude\claude_desktop_config.json
 ```
 
-Once configured and restarted, Claude Desktop has access to your `C:\CODE` folder (or wherever you saved the dashboard file).
+> ✏️ **Before you paste:** replace `C:\\CODE` with the actual folder where you saved `claude-usage.html`.
+>
+> 📋 Copy the snippet below — or [download it as a ready-made file ↓](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.1/claude_desktop_config.json)
+
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:\\CODE"
+      ]
+    }
+  }
+}
+```
+
+Once saved and Claude Desktop restarted, it will have read/write access to whichever folder you specified.
 
 ---
 
