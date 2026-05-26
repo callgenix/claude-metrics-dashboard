@@ -1,40 +1,35 @@
 # A Weekend-Long Pet Project: MCP 101
 
 ## Building a Claude Usage Dashboard in **8 Beginner-Friendly Steps**
+
 Before I could bring Claude and MCP into my day-to-day work, I needed to understand how their components actually fit together. That was my first priority for this weekend project.
 
-The second need had a lot of synergy with the first: my Pro plan kept catching me off guard, having to wait 4+ hours for Claude to release a new allowance. So I set out to create a standalone, visually clean HTML dashboard into which Claude would insert its metered usage information.
+The second need lined up nicely with the first: my Pro plan kept catching me off guard, having to wait 4+ hours for Claude to release a new allowance. So I set out to create a standalone, visually clean HTML dashboard into which Claude would insert its metered usage information.
 
-The end result: just tell Claude "go fetch the latest usage metrics" and it navigates to the Settings page, reads the numbers, and updates the HTML file automatically. No manual copying, no third-party tools.
+The end result: just tell Claude to update the dashboard, and it navigates to the Settings page, reads the numbers, and updates the HTML file automatically. No manual copying and no third-party tools.
 
-And in the process, I've built a working mental model of how Claude and MCP connect — which is exactly what I needed before taking this further at work.
-Note: you need a paid Claude plan to follow these steps.
+And in the process, I've built a working mental model of how Claude and MCP connect, which is exactly what I needed before taking this further at work.
 
-
-[![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
+> Note: you need a paid Claude plan to follow these steps.
 
 ---
 
-## Download
+# Quick Start
 
-👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
+## What you need
 
-Save it inside the folder you will give MCP Filesystem access to — for example `C:\CODE`. Open it in Chrome. That is it.
+- Node.js
+- Claude Desktop
+- Claude in Chrome extension
+- Paid Claude plan
 
----
+## Configure MCP Filesystem
 
-## Quick start — experienced users
+Locate or create:
 
-**What you need:** Node.js · Claude Desktop · Claude for Chrome extension · paid Claude plan.
+`C:/Users/[YOUR USERNAME]/AppData/Roaming/Claude/claude_desktop_config.json`
 
-**1.** Locate or create `claude_desktop_config.json` at:
-```
-C:\Users\[YOUR USERNAME]\AppData\Roaming\Claude\claude_desktop_config.json
-```
-
-> ✏️ **Before you paste:** replace `C:\\CODE` with the actual folder where you saved `claude-usage.html`.
->
-> 📋 Copy the snippet below — or [download it as a ready-made file ↓](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.1/claude_desktop_config.json)
+Replace `C:/CODE` with your own folder.
 
 ```json
 {
@@ -44,188 +39,119 @@ C:\Users\[YOUR USERNAME]\AppData\Roaming\Claude\claude_desktop_config.json
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "C:\\CODE"
+        "C:/CODE"
       ]
     }
   }
 }
 ```
 
-**2.** Restart Claude Desktop completely.
+Restart Claude Desktop completely.
 
-**3.** From an established Claude Desktop conversation (not a fresh tab, not a Project), say:
-> *"Fetch my dashboard data"*
+## Ask Claude to update the dashboard
 
-Approve the one-time browser permissions.
+Once Claude Desktop, Claude in Chrome, and the MCP Filesystem are connected properly, prompts like:
 
-**4.** Open `claude-usage.html` in Chrome and press F5.
+> "Update my Claude usage dashboard"
 
----
+or
 
-## What actually happens — step by step
+> "Fetch my dashboard data"
 
-This section is for anyone who wants to understand what Claude is doing when it runs the fetch. This is the part that surprised me the most when I first saw it.
+are often enough for Claude to infer the workflow automatically.
 
----
+In some situations, especially after reconnecting tools or starting a fresh conversation, a more explicit instruction may help:
 
-### Step 1 — You point Claude at a local folder
+> "Open my Claude usage pages, extract the visible metrics, then update claude-usage.html in my MCP filesystem folder."
 
-Before anything else, you add a short config to Claude Desktop that tells it which folder on your machine it can read and write. This is the **Filesystem MCP** — one of the two capabilities that make this whole thing work.
-
-```
-C:\Users\[YOUR USERNAME]\AppData\Roaming\Claude\claude_desktop_config.json
-```
-
-> ✏️ **Before you paste:** replace `C:\\CODE` with the actual folder where you saved `claude-usage.html`.
->
-> 📋 Copy the snippet below — or [download it as a ready-made file ↓](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.1/claude_desktop_config.json)
-
-```json
-{
-  "mcpServers": {
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "C:\\CODE"
-      ]
-    }
-  }
-}
-```
-
-Once saved and Claude Desktop restarted, it will have read/write access to whichever folder you specified.
+Approve any browser or connector permissions if prompted.
 
 ---
 
-### Step 2 — You type a phrase. Claude starts moving.
+# What Actually Happens
 
-In any **established** Claude Desktop conversation, you say something like:
+Claude navigates to the Claude usage pages, extracts the visible usage values, then updates the local HTML dashboard file through the MCP Filesystem.
 
-> *"Fetch my dashboard data"*
+The workflow relies on:
 
-The phrasing is flexible. Claude understands the intent, not a specific keyword. Within seconds, you will see the Chrome extension badge change state.
+- Claude Desktop
+- Claude in Chrome
+- MCP Filesystem access
+- Your active logged-in browser session
 
-![MCP browser tabs showing Claude badge states](screenshots/mcp-browser-tabs.jpg)
-
-The **Claude (MCP) badge** on your browser tab changes color as Claude works:
-- ✅ Green checkmark — active and ready
-- 🔔 Yellow bell — Claude is processing
-- ⏳ Orange hourglass — mid-task, browser interaction in progress
-
----
-
-### Step 3 — The browser tells you Claude is in control
-
-Chrome shows a notification band at the top of the browser window:
-
-![Chrome notification — Claude started debugging this browser](screenshots/chrome-notification-band.jpg)
-
-**"Claude started debugging this browser"** — this is Chrome's own security feature confirming that Claude Desktop, via the MCP protocol and the Claude Chrome extension, has been granted access to inspect and interact with your browser tabs.
-
-This is not a warning to be alarmed about. It is standard browser behavior when any MCP-connected tool activates. You approved this when you installed the extension. You will see this notification every time a fetch runs.
+No APIs.
+No credential storage.
+No manual copy-and-paste.
 
 ---
 
-### Step 4 — Claude opens your usage page and reads the numbers
+# Hurdles I've Encountered Along the Way
 
-Claude navigates to `claude.ai/settings/usage` and `platform.claude.com/settings/billing`, reads the live values directly from the page DOM, and passes them back to Claude Desktop.
+Even after successfully setting everything up and running multiple fetch cycles, I still occasionally hit situations where Claude does not immediately execute the workflow as expected.
 
-![Claude.ai usage page showing plan limits](screenshots/usage-page.jpg)
+What I learned is that MCP orchestration is surprisingly powerful, but also dependent on several moving parts being aligned simultaneously.
 
-This is the same page you would visit manually to check your usage. Claude is doing it for you and extracting every number automatically — session percentage, weekly limit, Design usage, routine runs, and API credit balance.
+For example, if:
+
+- Claude Desktop is already configured with the Filesystem MCP
+- the MCP folder is accessible
+- `claude-usage.html` already exists
+- Claude in Chrome is installed and connected
+- browser permissions were previously granted
+- the current conversation has tool access enabled
+
+...then even a completely cold conversation can often handle prompts like:
+
+> "Update my Claude usage dashboard"
+
+or
+
+> "Fetch my dashboard data"
+
+At that point, Claude is usually capable of inferring the entire workflow automatically:
+
+1. Open the Claude usage pages
+2. Read the visible metrics
+3. Locate the dashboard HTML file inside the MCP-mounted folder
+4. Update the file with the latest values
+
+That said, when one of the components above is missing, disconnected, expired, blocked, or simply in an inconsistent state, Claude may partially fail the chain or require more explicit instructions.
+
+Some examples I've personally encountered:
+
+- Claude in Chrome silently disconnected
+- Browser permissions needing reapproval
+- MCP filesystem folder path mismatch
+- Conversation opened without tool access enabled
+- Chrome tabs already open but inaccessible to Claude
+- Claude Desktop requiring a full restart after MCP changes
+- HTML file moved or renamed outside the mounted folder
+- Prompts too vague during a fresh conversation
+
+In practice, I discovered that MCP workflows behave much more like coordinating distributed components than issuing a single AI command.
+
+Ironically, debugging these small hurdles ended up teaching me far more about MCP architecture than the dashboard itself.
 
 ---
 
-### Step 5 — Press F5. Your dashboard is live.
+# Optional Reading
 
-Claude writes the updated values into your local HTML file via the filesystem MCP. Open `claude-usage.html` in Chrome and press F5. All metrics reflect exactly what Claude just read from your account page.
-
-No third-party tools. No APIs. No credential storage.
-
----
-
-## The Claude product ecosystem
-
-Every node in this diagram is a real product. It shows how Anthropic's AI models connect, through the API, down to the tools you use every day — including the two that power this dashboard: Claude Desktop and Claude for Chrome.
-
-[![Claude Product Ecosystem](ecosystem.svg)](https://github.com/callgenix/claude-metrics-dashboard/blob/main/ecosystem.svg)
-
----
-
-## Optional reading
-
-<details>
-<summary><strong>What it tracks</strong></summary>
-<br>
-
-| Metric | Resets |
+| Metric | Reset Behavior |
 |---|---|
-| Session window | Every ~5 hours (rolling) |
-| Weekly plan | Every Tuesday at 9 AM |
-| API credit balance | Never — only depletes with direct API calls |
-| Routines and Design usage | Daily / weekly |
-
-Claude measures session and weekly capacity in a proprietary unit. Anthropic does not publish the exact token equivalence. The percentages shown here come directly from your account page.
-
-</details>
-
-<details>
-<summary><strong>Understanding the ecosystem diagram</strong></summary>
-<br>
-
-**1 · Anthropic at the top** — the company that trains the models. Haiku, Sonnet, and Opus are the engines. Everything else is a way of reaching one of them.
-
-**2 · Claude API** — the single gateway everything goes through. Developers hit it directly. Every Claude product sits on top of it.
-
-**3 · Three interfaces, same AI** — claude.ai (browser/mobile), Claude Desktop (MCP host), Claude Code (CLI for developers). Different experiences, same models underneath.
-
-**4 · Extensions per interface** — Excel and PowerPoint add-ins from claude.ai. Cowork and Claude for Chrome from Desktop. VS Code and JetBrains from Claude Code.
-
-**5 · MCP Protocol layer** — the connective tissue that allows Claude to reach outside the chat window into your files, browser, and external services. Without MCP, this dashboard would not exist.
-
-</details>
-
-<details>
-<summary><strong>Requirements in detail</strong></summary>
-<br>
-
-| What | Why |
-|---|---|
-| Node.js (any recent version) | Claude Desktop uses `npx` to start the MCP server |
-| Claude Desktop | The MCP host — the browser version alone will not work |
-| Claude for Chrome | Official Anthropic extension for browser interaction |
-| A paid Claude plan | Pro, Max, Team, or Enterprise |
-
-Verify Node.js is properly installed:
-```bash
-node -v
-npx -v
-```
-Both should return version numbers. If either fails, reinstall from [nodejs.org](https://nodejs.org).
-
-</details>
-
-<details>
-<summary><strong>A note on scope</strong></summary>
-<br>
-
-This started as a simple personal experiment — a way to understand how Claude Desktop, MCP, and browser automation work together in practice. The dashboard was the excuse. The learning was the point.
-
-It uses only official tools published by Anthropic. It does not scrape, reverse-engineer, or circumvent anything. It reads the same usage data you can see manually by visiting your settings page.
-
-Want to customize it? Fork the repo and make it your own. That is what GitHub is for.
-
-</details>
+| Session window | Approximately every 5 hours |
+| Weekly plan | Based on the schedule displayed in your Claude account |
+| API credit balance | Does not reset automatically |
+| Routines and Design usage | Daily or weekly |
 
 ---
 
-## Related
+# A Note on Scope
 
-- [Callgenix.com](https://www.callgenix.com) — the AI demo catalog where this project lives
-- [Claude Desktop](https://claude.ai/download)
-- [MCP Documentation](https://modelcontextprotocol.io)
+This started as a personal experiment to better understand how Claude Desktop, MCP, browser automation, and filesystem access work together in practice.
+
+It uses Claude Desktop, Claude in Chrome, and the MCP filesystem server working together.
+
+The dashboard simply reads the same information already visible in your Claude account pages.
 
 ---
 
