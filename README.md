@@ -20,7 +20,7 @@ And in the process, I've built a working mental model of how Claude and MCP conn
 
 - Node.js
 - Claude Desktop
-- Claude in Chrome extension
+- Claude for Chrome
 - Paid Claude plan
 
 ## Configure MCP Filesystem
@@ -48,9 +48,15 @@ Replace `C:/CODE` with your own folder.
 
 Restart Claude Desktop completely.
 
+## Download the dashboard file
+
+Download `claude-usage.html` from the [releases page](https://github.com/callgenix/claude-metrics-dashboard/releases/download/v1.0.0/claude-usage.html) and place it inside the same folder you configured above (e.g. `C:/CODE`).
+
+This is the file Claude will read and update during each fetch.
+
 ## Ask Claude to update the dashboard
 
-Once Claude Desktop, Claude in Chrome, and the MCP Filesystem are connected properly, prompts like:
+Once Claude Desktop, Claude for Chrome, and the MCP Filesystem are connected properly, prompts like:
 
 > "Update my Claude usage dashboard"
 
@@ -75,7 +81,7 @@ Claude navigates to the Claude usage pages, extracts the visible usage values, t
 The workflow relies on:
 
 - Claude Desktop
-- Claude in Chrome
+- Claude for Chrome
 - MCP Filesystem access
 - Your active logged-in browser session
 
@@ -96,7 +102,7 @@ For example, if:
 - Claude Desktop is already configured with the Filesystem MCP
 - the MCP folder is accessible
 - `claude-usage.html` already exists
-- Claude in Chrome is installed and connected
+- Claude for Chrome is installed and connected
 - browser permissions were previously granted
 - the current conversation has tool access enabled
 
@@ -119,7 +125,7 @@ That said, when one of the components above is missing, disconnected, expired, b
 
 Some examples I've personally encountered:
 
-- Claude in Chrome silently disconnected
+- Claude for Chrome silently disconnected
 - Browser permissions needing reapproval
 - MCP filesystem folder path mismatch
 - Conversation opened without tool access enabled
@@ -127,7 +133,6 @@ Some examples I've personally encountered:
 - Claude Desktop requiring a full restart after MCP changes
 - HTML file moved or renamed outside the mounted folder
 - Prompts too vague during a fresh conversation
-- Switching Windows users and discovering that Claude Desktop, Chrome permissions, MCP connections, and extension sessions may need to be re-established almost from scratch
 
 In practice, I discovered that MCP workflows behave much more like coordinating distributed components than issuing a single AI command.
 
@@ -142,7 +147,7 @@ Ironically, debugging these small hurdles ended up teaching me far more about MC
 | Session window | Approximately every 5 hours |
 | Weekly plan | Based on the schedule displayed in your Claude account |
 | API credit balance | Does not reset automatically |
-| Routines and Design usage | Daily or weekly |
+| Routines and Design usage | Sub-features visible in the usage page. Reset cadence varies — check your account for the current schedule. |
 
 ---
 
@@ -150,10 +155,12 @@ Ironically, debugging these small hurdles ended up teaching me far more about MC
 
 This started as a personal experiment to better understand how Claude Desktop, MCP, browser automation, and filesystem access work together in practice.
 
-It uses Claude Desktop, Claude in Chrome, and the MCP filesystem server working together.
+It uses Claude Desktop, Claude for Chrome, and the MCP filesystem server working together.
 
 The dashboard simply reads the same information already visible in your Claude account pages.
 
 ---
 
 *Not affiliated with or endorsed by Anthropic.*
+
+*Always review MCP configurations before granting filesystem or browser access.*
