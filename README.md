@@ -8,7 +8,7 @@ The second need lined up nicely with the first: my Pro plan kept catching me off
 
 The end result: just tell Claude to update the dashboard, and it navigates to the Settings page, reads the numbers, and updates the HTML file automatically. No manual copying and no third-party tools.
 
-And in the process, I've built a working mental model of how Claude and MCP connect, which is exactly what I needed before taking this further at work.
+And in the process, I've built a working mental model of how Claude Desktop and MCP work together, which is exactly what I needed before taking this further at work.
 
 > Note: you need a paid Claude plan to follow these steps.
 
@@ -78,6 +78,8 @@ Approve any browser or connector permissions if prompted.
 
 Claude navigates to the Claude usage pages, extracts the visible usage values, then updates the local HTML dashboard file through the MCP Filesystem.
 
+MCP (Model Context Protocol) is an open standard, not exclusive to Claude, that allows AI models to connect to external tools and services. This project uses two MCP capabilities: filesystem access and browser control via the Chrome extension.
+
 The workflow relies on:
 
 - Claude Desktop
@@ -121,7 +123,7 @@ At that point, Claude is usually capable of inferring the entire workflow automa
 3. Locate the dashboard HTML file inside the MCP-mounted folder
 4. Update the file with the latest values
 
-That said, when one of the components above is missing, disconnected, expired, blocked, or simply in an inconsistent state, Claude may partially fail the chain or require more explicit instructions.
+When one of the components above is missing, disconnected, expired, or blocked, Claude may partially fail the chain or require more explicit instructions.
 
 Some examples I've personally encountered:
 
@@ -133,14 +135,10 @@ Some examples I've personally encountered:
 - Claude Desktop requiring a full restart after MCP changes
 - HTML file moved or renamed outside the mounted folder
 - Prompts too vague during a fresh conversation
-- **Windows user-switching caution:** if you switch Windows users, expect to 
-re-check the setup almost from scratch. Claude Desktop settings, the Chrome 
-extension session, browser permissions, and the MCP filesystem folder may not 
-carry over cleanly between Windows profiles.
 
-In practice, I discovered that MCP workflows behave much more like coordinating distributed components than issuing a single AI command.
+What I found is that MCP workflows behave much more like coordinating distributed components than issuing a single AI command.
 
-Ironically, debugging these small hurdles ended up teaching me far more about MCP architecture than the dashboard itself.
+Debugging those small hurdles ended up teaching me far more about MCP architecture than the dashboard itself.
 
 ---
 
@@ -151,7 +149,7 @@ Ironically, debugging these small hurdles ended up teaching me far more about MC
 | Session window | Approximately every 5 hours |
 | Weekly plan | Based on the schedule displayed in your Claude account |
 | API credit balance | Does not reset automatically |
-| Routines and Design usage | Sub-features visible in the usage page. Reset cadence varies — check your account for the current schedule. |
+| Routines and Design usage | Sub-features visible in the usage page. Reset cadence varies; check your account for the current schedule. |
 
 ---
 
