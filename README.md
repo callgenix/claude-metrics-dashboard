@@ -133,6 +133,10 @@ Some examples I've personally encountered:
 - Claude Desktop requiring a full restart after MCP changes
 - HTML file moved or renamed outside the mounted folder
 - Prompts too vague during a fresh conversation
+- **Windows user-switching caution:** if you switch Windows users, expect to 
+re-check the setup almost from scratch. Claude Desktop settings, the Chrome 
+extension session, browser permissions, and the MCP filesystem folder may not 
+carry over cleanly between Windows profiles.
 
 In practice, I discovered that MCP workflows behave much more like coordinating distributed components than issuing a single AI command.
 
