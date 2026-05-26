@@ -1,8 +1,10 @@
-# Claude Metrics Dashboard
+# A Weekend-Long Pet Project: MCP 101
+
+## Building a Claude Usage Dashboard in **8 Beginner-Friendly Steps**
+
+Learn how Claude Desktop, MCP, and browser automation work together by fetching usage metrics into a clean standalone HTML dashboard.
 
 [![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
-
-One HTML file. Live metrics from your Claude account — session window, weekly plan, and API credits.
 
 ---
 
@@ -10,7 +12,7 @@ One HTML file. Live metrics from your Claude account — session window, weekly 
 
 👉 **[Download claude-usage.html](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)**
 
-Save it **inside the folder** you will give MCP Filesystem access to — for example `C:\CODE`. 
+Save it inside the folder you will give MCP Filesystem access to — for example `C:\CODE`. Open it in Chrome. That is it.
 
 ---
 
