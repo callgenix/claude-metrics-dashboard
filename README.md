@@ -1,8 +1,10 @@
 # A Weekend-Long Pet Project: MCP 101
 
 ## Building a Claude Usage Dashboard in **8 Beginner-Friendly Steps**
+Before I could bring Claude and MCP into my day-to-day work, I needed to understand how their components actually fit together. That was priority number one for this weekend project.
 
-Learn how Claude Desktop, MCP, and browser automation work together by fetching usage metrics into a clean standalone HTML dashboard.
+The second need was more practical: a quick way to pull Claude's metered usage into a single, clean dashboard. Just tell Claude "go fetch the latest usage metrics" and it navigates to the Settings page, reads the numbers, and updates the HTML file automatically. No manual copying, no third-party tools.
+
 
 [![Claude Metrics Dashboard](screenshots/dashboard-main.jpg)](https://github.com/callgenix/claude-metrics-dashboard/raw/main/claude-usage.html)
 
