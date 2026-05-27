@@ -167,6 +167,12 @@ The dashboard simply reads the same information already visible in your Claude a
 
 ---
 
+# Contributing
+
+Contributions are welcome for specific features. The next planned addition is an 80% session alert, a browser notification that fires when your current session reaches 80% of its allowance, giving you enough time to wrap up before Claude cuts you off. If you'd like to build it, open an issue first to avoid duplicate work.
+
+---
+
 # Dark Background Version
 
 This dashboard uses a light theme. A dark background version was built during development. If you would like to see it published, leave a comment on the LinkedIn post: posted on May 27 as "Building a Claude usage dashboard in 8 beginner-friendly steps, a weekend-long MCP 101 project." Alternatively, open an issue on this repo with the title "Dark version please" and if there is enough interest, it goes live.
