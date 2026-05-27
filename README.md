@@ -14,6 +14,10 @@ And in the process, I've built a working mental model of how Claude Desktop and 
 
 ---
 
+![Claude Usage Dashboard — light background](https://raw.githubusercontent.com/callgenix/claude-metrics-dashboard/main/assets/LINKEDIN-carroussel-00-LB-vGold.png)
+
+---
+
 # Quick Start
 
 ## What you need
@@ -160,6 +164,12 @@ This started as a personal experiment to better understand how Claude Desktop, M
 It uses Claude Desktop, Claude for Chrome, and the MCP filesystem server working together.
 
 The dashboard simply reads the same information already visible in your Claude account pages.
+
+---
+
+# Dark Background Version
+
+This dashboard uses a light theme. A dark background version was built during development. If you would like to see it published, leave a comment on the LinkedIn post: posted on May 27 as "Building a Claude usage dashboard in 8 beginner-friendly steps, a weekend-long MCP 101 project." Alternatively, open an issue on this repo with the title "Dark version please" and if there is enough interest, it goes live.
 
 ---
 
